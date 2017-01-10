@@ -34,31 +34,32 @@ public class Hangman {
                 + "You have 6 tries.\n");
         int mistakes = 0;
         int correct = 0;
-        do{
-        printAnswerVisual(answerVisual);
-        System.out.println("\nYou have " + (6 - mistakes) + " remaining.\n");
-        char userAnswer = getUserAnswer(input);
-        if(validateAnswer(userAnswer, answerKey, answerVisual)){
-            System.out.println("\nCorrect!\n");
-            correct++;
-        } else{
-            System.out.println("\nWrong!\n");
-            mistakes++;
-        }
-        drawHangman(mistakes);
-        if(correct == answerKey.length){
-            System.out.println("Congratulations you win!");
-            System.exit(0);
-        }
-        }while(mistakes < 6);
+        do {
+            printAnswerVisual(answerVisual);
+            System.out.println("\nYou have " + (6 - mistakes) + " remaining.\n");
+            char userAnswer = getUserAnswer(input);
+            if (validateAnswer(userAnswer, answerKey, answerVisual)) {
+                System.out.println("\nCorrect!\n");
+                correct++;
+            } else {
+                System.out.println("\nWrong!\n");
+                mistakes++;
+            }
+            drawHangman(mistakes);
+            if (correct == answerKey.length) {
+                System.out.println("Congratulations you win!");
+                System.exit(0);
+            }
+        } while (mistakes < 6);
         System.out.println("You lose!");
         System.out.println(Arrays.toString(answerKey));
     }
 
-    public static void splashMessage() {
+    public static void splashMessage() {                                        // initial greeting message
         System.out.println("Welcome to 'Hangman!'");
         System.out.println("The goal is to guess the word before the hangman is complete. (6 tries)\n");
     }
+    // this is an options menu that allows the user to navigate and modify different apsects of the game
 
     public static void mainMenu(Scanner input, String[] answerLibrary, char[] answerKey) {
         System.out.print("****Main Menu****\n"
@@ -100,13 +101,13 @@ public class Hangman {
         } while (error);
     }
 
-    public static void credits() {
+    public static void credits() {                                              // displays message
         System.out.println("\nBy Michael Swanson.\n");
     }
 
     public static char getUserAnswer(Scanner input) {
         System.out.print("Enter one letter: ");
-            return input.next().trim().charAt(0);
+        return input.next().trim().charAt(0);
     }
 
     public static boolean validateAnswer(char userAnswer, char[] answerKey, char[] answerVisual) {
@@ -128,7 +129,7 @@ public class Hangman {
         System.out.println("\n");
     }
 
-    public static void drawHangman(int x) {
+    public static void drawHangman(int x) {                                     // draws hangman, everything below this line isn't implemented yet
         if (x == 6) {
 
         } else if (x == 5) {
@@ -147,7 +148,7 @@ public class Hangman {
     }
 }
 
-class HangmanFigure {
+class HangmanFigure {                                                           // this will generate the ascii art for the hangman
 
     private boolean head = false;
     private boolean torso = false;
