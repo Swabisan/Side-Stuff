@@ -1,3 +1,3 @@
-Side-Stuff
+# Side-Stuff
 Small throw-away programs.
-HAHAHAHAHAHAHAHA
+misc stuff and test items
